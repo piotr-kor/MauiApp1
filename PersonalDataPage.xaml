@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiApp1.PersonalDataPage"
+    Title="Dane osobowe">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,25" Spacing="15">
+
+            <Label
+                Text="Dane osobowe"
+                FontSize="28"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
+
+            <Entry x:Name="FirstNameEntry" Placeholder="Imię" />
+            <Entry x:Name="LastNameEntry" Placeholder="Nazwisko" />
+            <Entry x:Name="AddressEntry" Placeholder="Adres" />
+
+            <Entry
+                x:Name="PeselEntry"
+                Placeholder="PESEL (11 cyfr)"
+                Keyboard="Numeric"
+                MaxLength="11" />
+
+            <Button
+                Text="Zatwierdź dane"
+                Clicked="OnSummaryClicked" />
+
+            <Label
+                x:Name="MessageLabel"
+                TextColor="Red" />
+
+            <Label
+                Text="Podsumowanie"
+                FontSize="22"
+                FontAttributes="Bold"
+                IsVisible="False"
+                x:Name="SummaryTitle" />
+
+            <Label x:Name="SummaryLabel" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
