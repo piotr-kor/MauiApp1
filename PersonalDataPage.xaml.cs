@@ -1,7 +1,9 @@
 namespace MauiApp1
 {
     public partial class PersonalDataPage :
-        ContentPage, IQueryAttributable
+        ContentPage, IQueryAttributable         // IQueryAttributable pozwala odbierać dane przekazane podczas nawigacji
+                                                // Zobowiązuje klasę do udostępnienia metody ApplyQueryAttributes,
+                                                // której MAUI używa do przekazywania danych podczas nawigacji.
     {
         private string _email = "";
 
@@ -10,10 +12,12 @@ namespace MauiApp1
             InitializeComponent();
         }
 
+        // ApplyQueryAttributes to metoda wywoływana przez MAUI, gdy strona otrzymuje
+        // dane przekazane podczas nawigacji.
         public void ApplyQueryAttributes(
-            IDictionary<string, object> query)
+            IDictionary<string, object> przekazaneDane)
         {
-            if (query.TryGetValue("Email", out var email))
+            if (przekazaneDane.TryGetValue("Email", out var email))
                 _email = email?.ToString() ?? "";
         }
 
